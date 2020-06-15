@@ -15,8 +15,8 @@ body {
   align-items: center;
   flex-direction: column;
   width: 450px;
-  height: 500px;
-  margin: 15px auto 15px auto;
+  height: 600px;
+  margin: 50px auto 15px auto;
   border: 1px solid #000000;
   background-color: royalblue;
 }
@@ -24,7 +24,7 @@ body {
 h1 {
   color: #ffffff;
   padding: 15px;
-  margin-bottom: 75px;
+  margin-bottom: 65px;
   background-color: #a6d8df;
   border-radius: 3px;
 }
@@ -75,10 +75,6 @@ h1 {
   width: 250px;
 }
 
-#answer-row {
-
-}
-
 .hundreds,
 .tens,
 .ones {
@@ -89,4 +85,10 @@ h1 {
   padding-top: 5px;
   margin: 10px;
   background-color: #ffffff;
+}
+
+#check-answer {
+  margin-top: 50px;
+  padding: 10px;
+  justify-self: flex-end;
 }
