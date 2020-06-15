@@ -3,27 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
   <title>Math Game</title>
 </head>
 <body>
   <div id="wrapper">
     <h1>YOU LOVE MATH!</h1>
-    <div id="top-row">
-      <div class="hundreds"></div>
-      <div class="tens"></div>
-      <div class="ones"></div>
+    
+    <div id="top-row" class="equation-row">
+      <div class="hundreds">1</div>
+      <div class="tens">0</div>
+      <div class="ones">0</div>
     </div>
-    <div id="bottom-row">
-      <div class="hundreds"></div>
-      <div class="tens"></div>
-      <div class="ones"></div>
+
+    <div id="bottom-row" class="equation-row">
+      <div id="math-symbol">
+        <div id="symbol">+</div>
+      </div>
+      <div class="hundreds">1</div>
+      <div class="tens">0</div>
+      <div class="ones">0</div>
     </div>
-    <div id="answer-row"></div>
-    <div class="hundreds"></div>
-    <div class="tens"></div>
-    <div class="ones"></div>
+    <div id="separator"></div>
+    <div id="answer-row" class="equation-row">
+      <div class="hundreds">2</div>
+      <div class="tens">0</div>
+      <div class="ones">0</div>
     </div>
 
   </div>
+
+  <script src="./js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+ font-family: Arial, Helvetica, sans-serif;
+ background-color: #252222;
+}
+
+#wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 450px;
+  height: 500px;
+  margin: 15px auto 15px auto;
+  border: 1px solid #000000;
+  background-color: royalblue;
+}
+
+h1 {
+  color: #ffffff;
+  padding: 15px;
+  margin-bottom: 75px;
+  background-color: #a6d8df;
+  border-radius: 3px;
+}
+
+#math-symbol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #e6e4e4;
+  background-color: #ffffff;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  font-size: 1.5em;
+}
+
+#symbol {
+  text-align: center;
+  justify-self: flex-start;
+}
+
+.equation-row {
+  display: flex;
+  justify-content: center;
+  font-size: 2em;
+  width: 400px;
+  height: 50px;
+  /* border: 1px solid #000000; */
+}
+
+
+#top-row {
+  margin-bottom: 20px;
+}
+
+#bottom-row {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+#bottom-row .hundreds {
+  margin-left: 35px;
+}
+
+#separator {
+  border: 3px solid #e6e4e4;
+  width: 250px;
+}
+
+#answer-row {
+
+}
+
+.hundreds,
+.tens,
+.ones {
+  border: 3px solid #e6e4e4;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  padding-top: 5px;
+  margin: 10px;
+  background-color: #ffffff;
+}
