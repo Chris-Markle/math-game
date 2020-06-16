@@ -14,7 +14,7 @@ let onesAnswer;
 let tensAnswer;
 let hundsAnswer;
 
-
+// Assign random # to each ones, tens, and hundreds fields
 const randNum = (val) => {
   const randVal = Math.floor(Math.random() * 10);
   number = val.innerHTML = `${randVal}`;
@@ -29,6 +29,8 @@ const assignValues = () => {
   randNum(botRowHunds);
   let checkTopHunds = document.querySelector('.tr-h').innerHTML;
   let checkBotHunds = document.querySelector('.br-h').innerHTML;
+
+  // Don't allow a '0' in the hundreds place
   if(checkTopHunds === '0') {
     randNum(topRowHunds);
     // let newHunds = document.querySelector('.tr-h').innerHTML;
@@ -43,7 +45,6 @@ const assignValues = () => {
 assignValues();
 
 const checkAdditionAnswer = () => {
-
   let topOnes = Number(document.querySelector('.tr-o').innerHTML);
   let botOnes = Number(document.querySelector('.br-o').innerHTML);
   let topTens = Number(document.querySelector('.tr-t').innerHTML);
@@ -55,6 +56,7 @@ const checkAdditionAnswer = () => {
   tensAnswer = topTens + botTens;
   hundsAnswer = topHunds + botHunds;
 
+  // Carry the 1 to the tens place if needed
   if(onesAnswer > 9) {
     let onesString = onesAnswer.toString();
     let dblDigitNum = onesString.split("");
@@ -63,7 +65,7 @@ const checkAdditionAnswer = () => {
   } else {
     return onesAnswer;
   }
-  
+  // Carry the 1 to the hundreds place if needed
   if(tensAnswer > 9) {
     let tensString = tensAnswer.toString();
     let dblDigitNum = tensString.split("");
@@ -72,7 +74,7 @@ const checkAdditionAnswer = () => {
   } else {   
     return tensAnswer;
   }
-  console.log(hundsAnswer, tensAnswer, onesAnswer);
 }
 
 checkAdditionAnswer();
+console.log(hundsAnswer, tensAnswer, onesAnswer);
