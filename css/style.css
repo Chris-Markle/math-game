@@ -87,8 +87,24 @@ h1 {
   background-color: #ffffff;
 }
 
+.correctAnswer {
+  background-color: #38e738;
+
+}
+
+input {
+  font-size: 1.1em;
+  color: rgb(99, 136, 136);
+}
+
 #check-answer {
   margin-top: 50px;
   padding: 10px;
   justify-self: flex-end;
+}
+
+/* Remove arrow buttons from input fields */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }

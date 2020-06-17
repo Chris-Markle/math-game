@@ -10,6 +10,8 @@ const ansRowOnes = document.querySelector('.ar-o');
 const ansRowTens = document.querySelector('.ar-t');
 const ansRowHunds = document.querySelector('.ar-h');
 
+const checkAnswerButton = document.getElementById('check-answer');
+
 let onesAnswer;
 let tensAnswer;
 let hundsAnswer;
@@ -33,8 +35,6 @@ const assignValues = () => {
   // Don't allow a '0' in the hundreds place
   if(checkTopHunds === '0') {
     randNum(topRowHunds);
-    // let newHunds = document.querySelector('.tr-h').innerHTML;
-    // console.log(`Hundreds place changed to ${newHunds}`)
   }
 
   if(checkBotHunds === '0') {
@@ -44,7 +44,7 @@ const assignValues = () => {
 
 assignValues();
 
-const checkAdditionAnswer = () => {
+const computeAdditionAnswer = () => {
   let topOnes = Number(document.querySelector('.tr-o').innerHTML);
   let botOnes = Number(document.querySelector('.br-o').innerHTML);
   let topTens = Number(document.querySelector('.tr-t').innerHTML);
@@ -62,19 +62,34 @@ const checkAdditionAnswer = () => {
     let dblDigitNum = onesString.split("");
     onesAnswer = Number(dblDigitNum[1]);
     tensAnswer += 1;
-  } else {
-    return onesAnswer;
-  }
+  } 
   // Carry the 1 to the hundreds place if needed
   if(tensAnswer > 9) {
     let tensString = tensAnswer.toString();
     let dblDigitNum = tensString.split("");
     tensAnswer = Number(dblDigitNum[1]);
     hundsAnswer += 1;
-  } else {   
-    return tensAnswer;
-  }
-}
+   } 
+ }
 
-checkAdditionAnswer();
+computeAdditionAnswer();
 console.log(hundsAnswer, tensAnswer, onesAnswer);
+
+checkAnswerButton.addEventListener('click', function () {
+  let userHundsAnswer = Number(ansRowHunds.value);
+  let userTensAnswer = Number(ansRowTens.value);
+  let userOnesAnswer = Number(ansRowOnes.value);
+  let highlightGreen = document.querySelector('input');
+
+  if(userHundsAnswer === hundsAnswer && 
+    userTensAnswer === tensAnswer &&
+    userOnesAnswer === onesAnswer) {
+      console.log("Correct!");
+      highlightGreen.classList.add('.correctAnswer')
+      // console.log(highlightGreen);
+  } else {
+    console.log("Please try again.");
+  }
+})
+
+
