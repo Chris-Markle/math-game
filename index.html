@@ -9,7 +9,10 @@
 <body>
   <div id="wrapper">
     <h1>YOU LOVE MATH!</h1>
-    
+    <div id="rgrp-row">
+      <input type="number" class="rgrp-field rgrp-hunds">
+      <input type="number" class="rgrp-field rgrp-tens">      
+    </div>
     <div id="top-row" class="equation-row">
       <div class="hundreds tr-h"></div>
       <div class="tens tr-t"></div>
@@ -25,9 +28,10 @@
     </div>
     <div id="separator"></div>
     <div id="answer-row" class="equation-row">
-      <input type="number" name="hundreds" class="hundreds ar-h">
-      <input type="number" name="tens" class="tens ar-t">
-      <input type="number" name="ones" class="ones ar-o">
+      <input type="number" maxlength="1" name="thousands" class="thousands ar-th">
+      <input type="number" maxlength="1" name="hundreds" class="hundreds ar-h">
+      <input type="number" maxlength="1" name="tens" class="tens ar-t">
+      <input type="number" maxlength="1" name="ones" class="ones ar-o">
     </div>
     <button id="check-answer">CHECK ANSWER</button>
   </div>

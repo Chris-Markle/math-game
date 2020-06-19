@@ -9,20 +9,22 @@ const botRowHunds = document.querySelector('.br-h');
 const ansRowOnes = document.querySelector('.ar-o');
 const ansRowTens = document.querySelector('.ar-t');
 const ansRowHunds = document.querySelector('.ar-h');
+const ansRowThous = document.querySelector('.ar-th');
 
 const checkAnswerButton = document.getElementById('check-answer');
 
 let onesAnswer;
 let tensAnswer;
 let hundsAnswer;
+let thousAnswer;
 
 // Assign random # to each ones, tens, and hundreds fields
-const randNum = (val) => {
-  const randVal = Math.floor(Math.random() * 10);
-  number = val.innerHTML = `${randVal}`;
-}
+const newQuestion = () => {
+  const randNum = (val) => {
+    const randVal = Math.floor(Math.random() * 10);
+    number = val.innerHTML = `${randVal}`;
+  }
 
-const assignValues = () => {
   randNum(topRowOnes);
   randNum(topRowTens);
   randNum(topRowHunds)
@@ -42,7 +44,18 @@ const assignValues = () => {
   }
 }
 
-assignValues();
+newQuestion();
+
+
+// Leaving in for future reference 
+  // Only show thousands place if needed
+
+    /*function toggleThousandsPlace() {
+      const thousInput = document.querySelector('input[name=thousands]');
+      const ansRowShift = document.getElementById('answer-row')
+      ansRowShift.classList.add('answer-row-shift');
+      thousInput.style.display = 'none';
+    }*/
 
 const computeAdditionAnswer = () => {
   let topOnes = Number(document.querySelector('.tr-o').innerHTML);
@@ -70,26 +83,55 @@ const computeAdditionAnswer = () => {
     tensAnswer = Number(dblDigitNum[1]);
     hundsAnswer += 1;
    } 
+  if(hundsAnswer > 9) {
+    let hundsString = hundsAnswer.toString();
+    let dblDigitNum = hundsString.split("");
+    hundsAnswer = Number(dblDigitNum[1]);
+    thousAnswer = 1;
+    console.log(thousAnswer);
+   } else {
+     thousAnswer == 'undefined';
+     
+   }
  }
 
 computeAdditionAnswer();
-console.log(hundsAnswer, tensAnswer, onesAnswer);
+console.log(thousAnswer, hundsAnswer, tensAnswer, onesAnswer);
+
 
 checkAnswerButton.addEventListener('click', function () {
-  let userHundsAnswer = Number(ansRowHunds.value);
-  let userTensAnswer = Number(ansRowTens.value);
-  let userOnesAnswer = Number(ansRowOnes.value);
-  let highlightGreen = document.querySelector('input');
+  const userThousAnswer = Number(ansRowThous.value);
+  const userHundsAnswer = Number(ansRowHunds.value);
+  const userTensAnswer = Number(ansRowTens.value);
+  const userOnesAnswer = Number(ansRowOnes.value);
 
   if(userHundsAnswer === hundsAnswer && 
     userTensAnswer === tensAnswer &&
-    userOnesAnswer === onesAnswer) {
+    userOnesAnswer === onesAnswer &&
+    userThousAnswer === thousAnswer) {
       console.log("Correct!");
-      highlightGreen.classList.add('.correctAnswer')
-      // console.log(highlightGreen);
+      nextQuestion();
   } else {
     console.log("Please try again.");
   }
 })
 
+const nextQuestion = () => {
+  userHundsAnswer = 0;
+  userTensAnswer = 0;
+  userOnesAnswer = 0;
+  newQuestion();
+}
 
+
+
+
+
+
+// if(thousAnswer === 'undefined') {
+//   if(userHundsAnswer === hundsAnswer && 
+//     userTensAnswer === tensAnswer &&
+//     userOnesAnswer === onesAnswer &&) {
+
+//     }
+// }

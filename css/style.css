@@ -1,8 +1,15 @@
+:root {
+  --rounded-corners: 5px;
+  --border-style: 3px solid #e6e4e4;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
+
+
 
 body {
  font-family: Arial, Helvetica, sans-serif;
@@ -33,11 +40,12 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid #e6e4e4;
+  border: var(--border-style);
+  border-radius: var(--rounded-corners);
   background-color: #ffffff;
   width: 50px;
   height: 50px;
-  margin: 10px;
+  margin: 10px 10px 10px 10px;
   font-size: 1.5em;
 }
 
@@ -52,17 +60,16 @@ h1 {
   font-size: 2em;
   width: 400px;
   height: 50px;
-  /* border: 1px solid #000000; */
 }
 
 
 #top-row {
   margin-bottom: 20px;
+  margin-left: 70px;
 }
 
 #bottom-row {
   display: flex;
-  justify-content: flex-start;
   margin-bottom: 20px;
 }
 
@@ -70,21 +77,49 @@ h1 {
   margin-left: 35px;
 }
 
-#separator {
-  border: 3px solid #e6e4e4;
-  width: 250px;
+#bottom-row .ones {
+  margin-right: 35px;
 }
 
+.answer-row-shift {
+  margin-left: 70px;
+}
+
+#separator {
+  border: var(--border-style);
+  width: 280px;
+}
+
+.thousands,
 .hundreds,
 .tens,
 .ones {
-  border: 3px solid #e6e4e4;
+  border: var(--border-style);
+  border-radius: var(--rounded-corners);
   width: 50px;
   height: 50px;
   text-align: center;
   padding-top: 5px;
   margin: 10px;
   background-color: #ffffff;
+}
+
+#rgrp-row {
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+  width: 200px;
+  margin-left: 80px;
+}
+
+.rgrp-field {
+  text-align: center;
+  width: 25px;
+  height: 25px;
+}
+
+.rgrp-hunds {
+  margin-right: 45px;
 }
 
 .correctAnswer {
@@ -95,12 +130,15 @@ h1 {
 input {
   font-size: 1.1em;
   color: rgb(99, 136, 136);
+  border-radius: var(--rounded-corners);
 }
 
 #check-answer {
   margin-top: 50px;
   padding: 10px;
   justify-self: flex-end;
+  border-radius: var(--rounded-corners);
+  border: var(--border-style);
 }
 
 /* Remove arrow buttons from input fields */
