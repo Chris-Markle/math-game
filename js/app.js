@@ -11,12 +11,17 @@ const ansRowTens = document.querySelector('.ar-t');
 const ansRowHunds = document.querySelector('.ar-h');
 const ansRowThous = document.querySelector('.ar-th');
 
+const rgrpRowHunds = document.querySelector('.rgrp-hunds');
+const rgrpRowTens = document.querySelector('.rgrp-tens');
+
 const checkAnswerButton = document.getElementById('check-answer');
 
 let onesAnswer;
 let tensAnswer;
 let hundsAnswer;
 let thousAnswer;
+let rgrpHundsAnswer;
+let rgrpTensAnswer;
 
 // Assign random # to each ones, tens, and hundreds fields
 const newQuestion = () => {
@@ -89,10 +94,7 @@ const computeAdditionAnswer = () => {
     hundsAnswer = Number(dblDigitNum[1]);
     thousAnswer = 1;
     console.log(thousAnswer);
-   } else {
-     thousAnswer == 'undefined';
-     
-   }
+   } 
  }
 
 computeAdditionAnswer();
@@ -100,38 +102,50 @@ console.log(thousAnswer, hundsAnswer, tensAnswer, onesAnswer);
 
 
 checkAnswerButton.addEventListener('click', function () {
-  const userThousAnswer = Number(ansRowThous.value);
-  const userHundsAnswer = Number(ansRowHunds.value);
-  const userTensAnswer = Number(ansRowTens.value);
-  const userOnesAnswer = Number(ansRowOnes.value);
-
-  if(userHundsAnswer === hundsAnswer && 
-    userTensAnswer === tensAnswer &&
-    userOnesAnswer === onesAnswer &&
-    userThousAnswer === thousAnswer) {
-      console.log("Correct!");
-      nextQuestion();
-  } else {
-    console.log("Please try again.");
-  }
+  checkAnswer();
 })
 
 const nextQuestion = () => {
   userHundsAnswer = 0;
   userTensAnswer = 0;
   userOnesAnswer = 0;
-  newQuestion();
 }
 
 
+const checkAnswer = () => {
+  const userThousAnswer = Number(ansRowThous.value);
+  const userHundsAnswer = Number(ansRowHunds.value);
+  const userTensAnswer = Number(ansRowTens.value);
+  const userOnesAnswer = Number(ansRowOnes.value);
+  const userRgrpHundsAnswer = Number(rgrpRowHunds.value);
+  const userRgrpTensAnswer = Number(rgrpRowTens.value);
+  const validAnswers = [];
+  let ans = [
+    thousAnswer, 
+    hundsAnswer, 
+    tensAnswer, 
+    onesAnswer,
+    rgrpTensAnswer,
+    rgrpHundsAnswer
+  ];
+  for(let i=0; i<ans.length; i++) {
+    if(ans[i] !== undefined) { // check one answer at a time
+      let currentAnswer = ans[i];
+      validAnswers.push(currentAnswer);
+      console.log(validAnswers);
+      // if(userHundsAnswer === hundsAnswer && 
+      //   userTensAnswer === tensAnswer &&
+      //   userOnesAnswer === onesAnswer &&
+      //   userThousAnswer === thousAnswer &&
+      //   userRgrpTensAnswer === rgrpTensAnswer &&
+      //   userRgrpHundsAnswer === rgrpHundsAnswer){
+      //     console.log("Correct!");
+      //     nextQuestion();
+      } else {
+        console.log("Please try again.");
+      }
+    }
+  }
+//}
 
-
-
-
-// if(thousAnswer === 'undefined') {
-//   if(userHundsAnswer === hundsAnswer && 
-//     userTensAnswer === tensAnswer &&
-//     userOnesAnswer === onesAnswer &&) {
-
-//     }
-// }
+// if current answer isn't undefined, add it to a new array, and only check those answers against the user's answers
